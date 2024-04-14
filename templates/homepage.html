@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Bank</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* CSS styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('background.jpg') center/cover no-repeat;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        nav ul li {
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ffd700;
+        }
+        .hero-content {
+            text-align: center;
+            padding: 100px 0;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+        .btn {
+            background-color: #ffd700;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #f5c300;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="logo">Jmic Islamic Bank</h1>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-content">
+        <div class="container">
+            <h1>Welcome to Jmic Islamic Bank</h1>
+            <p>Jamiya Mahiriyya Islamic Collage Bank</p>
+            {% if user.is_authenticated %}
+                {% if user.username == 'admin' %}
+                    <a href="admin/" style="text-decoration: none;"><button class="btn">GO TO ACCOUNT</button></a>
+                {% else %}
+                    <a href="{% url 'view_transactions'%}" style="text-decoration: none;"><button class="btn">GO TO ACCOUNT</button></a>
+                {% endif %}
+            {% endif%}
+            {% if not user.is_authenticated %}
+            <a href="{% url 'login'%}" style="text-decoration: none;"><button class="btn">Do Login</button></a>
+            {% endif%}
+        </div>
+    </section>
+
+    <footer>
+        &copy; 2024 Modern Bank. All rights reserved.
+    </footer>
+
+    <script>
+        // JavaScript code (if needed)
+    </script>
+
+</body>
+</html>

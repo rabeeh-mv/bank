@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <div class="login-card">
+    <h2>Register</h2>
+    <form method="post">
+      {% csrf_token %}
+      <label for="username">Username:</label>
+      {{ form.username }}
+
+      <label for="email">Email</label>
+      {{ form.email}}
+
+      <label for="password">Password</label>
+      {{ form.password1 }}
+
+      <label for="password">confirm Password</label>
+      {{ form.password2 }}
+
+      <div class="chekbox">
+        <label>
+          <span class="caption">Admin</span>
+          {{ form.is_admin }}
+        </label>
+        <label>
+          <span>/ Student</span>
+          {{ form.is_student }}
+        </label>
+        <label>
+          <span>/ Teacher</span>
+          {{ form.is_teacher }}
+        </label>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+    <span class="text-error">{{ form.errors }}</span>
+  </div>
+</div>
+{% endblock %}

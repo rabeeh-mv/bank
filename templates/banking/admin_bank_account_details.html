@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Bank Account Details</title>
+</head>
+<body>
+    <h1>Admin Bank Account Details</h1>
+    <p>Welcome, {{ admin_profile.user.username }}!</p>
+
+    <h2>Your Bank Account</h2>
+    <p>Account Number: {{ bank_account.account_number }}</p>
+    <p>Balance: ${{ bank_account.balance }}</p>
+
+    <hr>
+
+    <!-- Add Money Form -->
+    <h2>Add Money</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Money</button>
+    </form>
+
+    <hr>
+
+    <!-- Debit Money Form -->
+    <h2>Debit Money</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Debit Money</button>
+    </form>
+</body>
+</html>

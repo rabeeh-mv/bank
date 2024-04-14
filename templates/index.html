@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+  <h1>islamic bank</h1>
+    <h3>account name, {{ request.user.username }}!</h3>
+    
+    <h2>Your Account Details</h2>
+    <p>Account Number: {{ user_account.account_number }}</p>
+    
+    <a href="{% url 'view_transactions'%}">transation list</a>
+</body>
+</html>
